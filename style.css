@@ -85,3 +85,41 @@ body{
         transform:translateY(40px);
     }
 }
+.chat-box{
+    width:90%;
+    max-width:500px;
+    margin:20px auto;
+    text-align:center;
+}
+
+#chat{
+    height:180px;
+    overflow-y:auto;
+    background:#111;
+    border:1px solid cyan;
+    border-radius:15px;
+    padding:15px;
+    color:#fff;
+    text-align:left;
+    box-shadow:0 0 15px rgba(0,255,255,.3);
+}
+
+#chat p{
+    margin:10px 0;
+}
+
+#mic{
+    margin-top:20px;
+    padding:12px 25px;
+    border:none;
+    border-radius:30px;
+    background:#00eaff;
+    color:#000;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#mic:hover{
+    transform:scale(1.05);
+}
