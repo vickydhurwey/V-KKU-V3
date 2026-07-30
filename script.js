@@ -83,11 +83,13 @@ if (SpeechRecognition) {
         let text = event.results[0][0].transcript;
 
         chat.innerHTML += `<p><b>You:</b> ${text}</p>`;
+let memory = JSON.parse(localStorage.getItem("VIKKU_MEMORY"));
 
+let userName = memory ? memory.name : "User";
         let reply = "Sorry, I didn't understand.";
 
         if (text.toLowerCase().includes("hello")) {
-            reply = "Hello Vicky! Nice to hear your voice.";
+            reply = "Hello &-(username)! Nice to hear your voice.";
         } else if (text.toLowerCase().includes("how are you")) {
             reply = "I'm doing great. Thank you for asking.";
         } else if (text.toLowerCase().includes("your name")) {
@@ -95,7 +97,7 @@ if (SpeechRecognition) {
         }
 
         chat.innerHTML += `<p><b>V!KKU:</b> ${reply}</p>`;
-
+saveChat(`<b>V!KKU:</b> ${reply}`);
         const speech = new SpeechSynthesisUtterance(reply);
         speech.lang = "en-IN";
         speechSynthesis.speak(speech);
@@ -105,7 +107,8 @@ if (SpeechRecognition) {
 } else {
 
     chat.innerHTML += "<p><b>V!KKU:</b> Sorry, your browser doesn't support voice recognition.</p>";
-
+    saveChat(`<b>V!KKU:</b> ${reply}`);
+saveChat(`<b>You:</b> ${text}`);
 }
 // ===== V!KKU MEMORY SYSTEM =====
 
@@ -144,3 +147,38 @@ let savedMemory = JSON.parse(
 );
 
 console.log(savedMemory);
+// ===== CHAT MEMORY =====
+
+function saveChat(message){
+
+    let history = JSON.parse(
+        localStorage.getItem("CHAT_HISTORY")
+    ) || [];
+
+    history.push(message);
+
+    localStorage.setItem(
+        "CHAT_HISTORY",
+        JSON.stringify(history)
+    );
+
+}
+
+
+function loadChat(){
+
+    let history = JSON.parse(
+        localStorage.getItem("CHAT_HISTORY")
+    ) || [];
+
+    history.forEach(msg => {
+
+        chat.innerHTML += `<p>${msg}</p>`;
+
+    });
+
+}
+
+
+// Load old chats
+loadChat();
