@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>V!KKU V3</title>
 
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
+
 <div class="background-grid"></div>
+
+
+<!-- BOOT SCREEN -->
+
 <div id="boot-screen">
 
     <h1 class="logo">V!KKU V3</h1>
@@ -23,91 +31,80 @@
 
 </div>
 
+
+
+<!-- MAIN DASHBOARD -->
+
 <div id="dashboard">
 
+
+    <!-- TOP INFORMATION -->
+
     <div class="top-bar">
-        <div id="time">00:00:00</div>
-        <div id="date">Loading...</div>
+
+        <div>
+            <div id="time">00:00:00</div>
+            <div id="date">Loading...</div>
+        </div>
+
     </div>
+
+
+
+    <!-- AI CORE -->
 
     <div class="ai-core">
-        <div class="orb"></div>
+
+        <div class="orb">
+
+            <div class="ring ring1"></div>
+            <div class="ring ring2"></div>
+            <div class="ring ring3"></div>
+
+        </div>
+
+
         <h2>V!KKU AI ONLINE</h2>
+
         <p>Welcome, Vicky</p>
+
+
     </div>
+
+
+
+    <!-- CHAT AREA -->
+
+
     <div class="chat-box">
 
-    <div id="chat">
-        <p><b>V!KKU:</b> Hello Vicky ❤️</p>
+
+        <div id="chat">
+
+            <p>
+                <b>V!KKU:</b>
+                Hello Vicky, I am online.
+            </p>
+
+        </div>
+
+
+        <button id="mic">
+            🎤 Talk to V!KKU
+        </button>
+
+
     </div>
 
-    <button id="mic">🎤 Talk to V!KKU</button>
 
-    </div>
 
 </div>
 
+
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
-/* ===== DASHBOARD ===== */
-
-.top-bar{
-    width:90%;
-    position:absolute;
-    top:25px;
-    left:50%;
-    transform:translateX(-50%);
-    display:flex;
-    justify-content:space-between;
-    color:#00eaff;
-    font-size:20px;
-}
-
-.ai-core{
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-}
-
-.orb{
-    width:180px;
-    height:180px;
-    border-radius:50%;
-    background:radial-gradient(circle,#00ffff,#003b4d,#000);
-    box-shadow:0 0 25px cyan,
-               0 0 50px cyan,
-               0 0 100px cyan;
-    animation:pulse 2s infinite;
-}
-
-.ai-core h2{
-    margin-top:30px;
-    color:#00ffff;
-    text-shadow:0 0 15px cyan;
-    letter-spacing:3px;
-}
-
-.ai-core p{
-    margin-top:10px;
-    color:#aaa;
-}
-
-@keyframes pulse{
-
-    0%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.08);
-    }
-
-    100%{
-        transform:scale(1);
-    }
-
-}
