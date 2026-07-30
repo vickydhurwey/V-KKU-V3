@@ -68,10 +68,11 @@ window.SpeechRecognition || window.webkitSpeechRecognition;
 
 if (SpeechRecognition) {
 
-    const recognition = new SpeechRecognition();
+    const recognition = new SpeechRecognition(reply);
 
     recognition.lang = "en-IN";
-    recognition.continuous = false;
+    speechsynthesis.speak(speech)
+    recognition.continuous = true;
 
     mic.onclick = () => {
         recognition.start();
