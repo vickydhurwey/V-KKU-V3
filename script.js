@@ -40,3 +40,21 @@ let loading = setInterval(() => {
     }
 
 }, 50);
+// ===== Live Clock =====
+
+function updateClock() {
+
+    const now = new Date();
+
+    const time = now.toLocaleTimeString();
+
+    const date = now.toDateString();
+
+    document.getElementById("time").innerHTML = time;
+    document.getElementById("date").innerHTML = date;
+
+}
+
+setInterval(updateClock, 1000);
+
+updateClock();
