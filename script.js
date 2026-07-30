@@ -107,3 +107,40 @@ if (SpeechRecognition) {
     chat.innerHTML += "<p><b>V!KKU:</b> Sorry, your browser doesn't support voice recognition.</p>";
 
 }
+// ===== V!KKU MEMORY SYSTEM =====
+
+let vikkU_Memory = {
+    name: "Vicky",
+    assistantName: "V!KKU V3",
+
+    preferences: {
+        language: "Hindi",
+        style: "Friendly"
+    },
+
+    interests: [
+        "Technology",
+        "AI",
+        "Coding",
+        "Video Editing"
+    ],
+
+    projects: [
+        "V!KKU V3 AI Assistant"
+    ]
+};
+
+
+// Save Memory
+localStorage.setItem(
+    "VIKKU_MEMORY",
+    JSON.stringify(vikkU_Memory)
+);
+
+
+// Load Memory
+let savedMemory = JSON.parse(
+    localStorage.getItem("VIKKU_MEMORY")
+);
+
+console.log(savedMemory);
