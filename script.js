@@ -58,3 +58,51 @@ function updateClock() {
 setInterval(updateClock, 1000);
 
 updateClock();
+// ===== Voice Assistant =====
+
+const mic = document.getElementById("mic");
+const chat = document.getElementById("chat");
+
+const SpeechRecognition =
+window.SpeechRecognition || window.webkitSpeechRecognition;
+
+if (SpeechRecognition) {
+
+    const recognition = new SpeechRecognition();
+
+    recognition.lang = "en-IN";
+    recognition.continuous = false;
+
+    mic.onclick = () => {
+        recognition.start();
+    };
+
+    recognition.onresult = (event) => {
+
+        let text = event.results[0][0].transcript;
+
+        chat.innerHTML += `<p><b>You:</b> ${text}</p>`;
+
+        let reply = "Sorry, I didn't understand.";
+
+        if (text.toLowerCase().includes("hello")) {
+            reply = "Hello Vicky! Nice to hear your voice.";
+        } else if (text.toLowerCase().includes("how are you")) {
+            reply = "I'm doing great. Thank you for asking.";
+        } else if (text.toLowerCase().includes("your name")) {
+            reply = "My name is V!KKU V3.";
+        }
+
+        chat.innerHTML += `<p><b>V!KKU:</b> ${reply}</p>`;
+
+        const speech = new SpeechSynthesisUtterance(reply);
+        speech.lang = "en-IN";
+        speechSynthesis.speak(speech);
+
+    };
+
+} else {
+
+    chat.innerHTML += "<p><b>V!KKU:</b> Sorry, your browser doesn't support voice recognition.</p>";
+
+}
